@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up to Pawsitivity</title>
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/chat-widget.css">
+    <script type="module" src="./js/firebaseAuth.js" defer></script>
+    
+  </head>
+  <body>
+    <!-- <nav>
+      <div class="logo"><img src="../public/img/images.png" alt /></div>
+      <div class="navpart">
+        <h4 onclick="window.location.href='/'"">Home</h4>
+        <h4 onclick="window.location.href='/pets'">Adopt now</h4>
+        <h4 onclick="window.location.href='/upforadoption'">Post-a-Pet</h4>
+        <h4 onclick="window.location.href='/about'">About us</h4>
+        <h4 onclick="window.location.href='/contact'">Contact Us</h4>
+      </div>
+      <button onclick="window.location.href='/signin'">Sign in</button>
+    </nav> -->
+
+    <div class="bg-overlay"></div>
+    <video autoplay muted loop id="bg-video-1" class="bg-video">
+      <source src="../img/loginvid.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+  </video>
+  <video autoplay muted loop id="bg-video-2" class="bg-video">
+      <source src="../img/loginvid2.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+  </video>
+  <video autoplay muted loop id="bg-video-2" class="bg-video">
+      <source src="../img/loginvid3.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+  </video>
+    <h1 style="position: absolute; top: 4%; right: 39%; color : #f19b0d;">Sign up to Pawsitivity</h1>
+    
+    <form id="email-signup" class="form">
+      <div class="flex-column">
+        <label>Email </label>
+      </div>
+      <div class="inputForm">
+        <input id="email" placeholder="Enter your Email" class="input"
+          type="text" />
+      </div>
+      <div class="flex-column">
+        <label>Password </label>
+      </div>
+      <div class="inputForm">
+        <input id="password" placeholder="Enter your Password" class="input"
+          type="password" />
+      </div>
+      <button type="submit" class="button-submit">Sign Up</button>
+      <p class="p">Already have an account? <a href="./login.html">Sign In.</a>
+      </p>
+      <p class="p line">Or, continue with</p>
+      <div class="flex-row">
+        <button id="google-btn" type="button" class="btn google">Google</button>
+        <button id="facebook-btn" type="button"
+          class="btn facebook">Facebook</button>
+      </div>
+    </form>
+
+  <script src="./js/chat-widget.js"></script>
+
+
+    <!-- In your HTML file -->
+    <script
+      src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script
+      src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <!-- Include other Firebase SDKs as needed -->
+
+    <script src="firebaseAuth.js"></script>
+
+    <script>
+      let currentVideoIndex = 0;
+      const videos = document.querySelectorAll('.bg-video');
+      const totalVideos = videos.length;
+      const switchInterval = 10000; // Switch video every 10 seconds
+    
+      function switchVideo() {
+          // Hide the current video
+          videos[currentVideoIndex].style.display = 'none';
+    
+          // Update the index to the next video
+          currentVideoIndex = (currentVideoIndex + 1) % totalVideos;
+    
+          // Show the next video
+          videos[currentVideoIndex].style.display = 'block';
+      }
+    
+      // Set the first video to display initially
+      videos[currentVideoIndex].style.display = 'block';
+    
+      // Switch videos at the specified interval
+      setInterval(switchVideo, switchInterval);
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,85 @@
+.chat-widget {
+    position: sticky; /* Fixes the widget to the viewport */
+    bottom: 0px;    /* Space from the bottom of the viewport */
+    right: 20px;
+    left: 95% !important; /* Space from the right side of the viewport */
+    width: 60px;
+    height: 58px;    /* Dimensions of the chat header */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #F9977B;
+    z-index: 1000;   /*z-index to stay above other content */
+    transition: all 0.3s ease; /* Smooth transition for opening/closing */
+}
+
+
+.chat-header {
+    /* background-color: #f19b0d; Background color */
+    color: #fff;
+    padding: 1px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.chat-header img {
+    width: 65px; /* Width of the chat icon */
+    height: 60px; /* Height of the chat icon */
+    border-radius: 20px; /* Rounded corners for the chat icon */
+    transform: scale(1.4); /* Zoom in the image */
+}
+
+.chat-body {
+    display: none; /* Initially hidden */
+    position: absolute; /* Absolute positioning within the sticky container */
+    bottom: 100%; /* Position it above the chat header */
+    right: 0; /* Align with the right of the chat header */
+    width: 300px; /* Width of the expanded chat */
+    height: 400px; /* Height of the chat */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #1F2032;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto; /* Ensure messages scroll if they overflow */
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    margin-bottom: 10px; /* Space between messages */
+}
+.message-text {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    /* Decrease font size */
+    line-height: 20; /* Increase line height for better readability */
+}
+
+.message.user .message-text {
+    background-color: #e0f7fa; /* Background color for user messages */
+    align-self: flex-end; /* Align user messages to the right */
+}
+
+.message.ai .message-text {
+    background-color: #ffffff; /* Background color for AI messages */
+    align-self: flex-start; /* Align AI messages to the left */
+}
+
+textarea {
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    overflow-y: auto; /* Ensure textarea scrolls if content overflows */
+}

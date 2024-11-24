@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="./css/chatstyle.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-history" id="chat-history"></div>
+        <textarea id="user-input" rows="3" placeholder="Type your message..."></textarea>
+        <button id="send-btn">Send</button>
+    </div>
+    <script>
+document.getElementById('send-btn').addEventListener('click', async () => {
+    const inputElement = document.getElementById('user-input');
+    const message = inputElement.value.trim();
+
+    if (!message) return;
+
+    // Add user message to chat history
+    const chatHistory = document.getElementById('chat-history');
+    chatHistory.innerHTML += `<div class="user">${message}</div>`;
+
+    // Send message to backend
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message })
+        });
+        const result = await response.json();
+        const botMessage = result.text;
+
+        // Add bot message to chat history
+        chatHistory.innerHTML += `<div class="model">${botMessage}</div>`;
+        chatHistory.scrollTop = chatHistory.scrollHeight; // Scroll to bottom
+    } catch (error) {
+        console.error('Error sending message:', error);
+    }
+
+    // Clear the input field
+    inputElement.value = '';
+});
+
+    </script>
+</body>
+</html>

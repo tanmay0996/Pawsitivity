@@ -1,0 +1,16 @@
+        <div class="cards">
+            <div class="card" href="/detail">
+                <img class="pet-image" style="
+                width:114px;
+                height: 114px; border-radius: 20%; margin-right: 30px;" src="{%PET_IMAGE%}">
+                <div class="card-body">
+                    <h2>{%PET_NAME%}</h2>
+                    Breed : {%PET_BREED%} <br>
+                    Posted by  : {%PET_POSTER%}<br>
+                    At : {%LOCATION%}
+                </div>
+                <!-- <a class="card__link" href="/pets/{%ID%}"> -->
+                    <button class="checkout" onclick="window.location.href='/pets/{%ID%}'" style="margin-left:auto; border-radius: 20%; ">Checkout details ! -></button>
+                <!-- </a> -->
+            </div>
+        </div>

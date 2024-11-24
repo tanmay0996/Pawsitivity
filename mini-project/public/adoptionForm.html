@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Put a pal up for adoption </title>
+    <link rel="stylesheet" href="./css/adoptionForm.css">
+    <link rel="stylesheet" href="./css/chat-widget.css">
+    <style>
+        .uploadimg .pic {
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 2px dashed #ccc;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            overflow: hidden; /* Ensures the image does not overflow the div */
+        }
+        .uploadimg .pic:hover {
+            background-color: #e0e0e0;
+        }
+        .uploadimg input[type="file"] {
+            display: none;
+        }
+        .uploadimg img {
+            width: 150%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the entire div while maintaining aspect ratio */
+            display: none; /* Hidden initially */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo"><img src="../public/img/images.png" alt="" /></div>
+        <div class="navpart">
+            <h4 onclick="window.location.href='/'"">Home</h4>
+            <h4 onclick="window.location.href='/pets'">Adopt now</h4>
+            <h4 onclick="window.location.href='/upforadoption'">Post-a-Pet</h4>
+            <h4 onclick="window.location.href='/about'">About us</h4>
+            <h4 onclick="window.location.href='/contact'">Contact Us</h4>
+        </div>
+        <button onclick="window.location.href='/signin'">Sign in</button>
+    </nav>    <br>
+    <div class="contact-container">
+        <h1>Application form</h1>
+        <p>Thank you for your interest in adopting a pet! Please fill out this application form to help us find the perfect match for you and ensure our pets go to loving and responsible homes.</p>
+        <br>
+        <div class="uploadimg">
+            <h3>Upload Image</h3>
+            <div class="pic">
+                Click Here
+                <img id="image-preview" alt="Image Preview">
+            </div>
+            <input type="file" id="file-input" accept="image/png">
+        </div>
+        
+        <form id="adoption-form" method="post" action="javascript:void(0);">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter name" required>
+
+            <label for="Pet">Pet</label>
+            <select name="My pets" id="pet">
+                <option value="Dog" default>Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Bird">Bird</option>
+            </select>
+
+            <label for="contact-no">Contact no.*</label>
+            <input type="text" id="contact-no" name="contact-no" placeholder="935XXXXXXX" required>
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="abc@gmail.com" required>
+
+            
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" placeholder="Address info">
+
+            <br>
+            <label for="breed">Breed</label>
+            <input type="text" id="breed" name="breed" placeholder="Breed">
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Write your message here..."></textarea>
+
+            <button id='submit-btn' type="submit">Submit</button>
+        </form>
+    </div>
+    <div id="chat-widget" class="chat-widget">
+        <div class="chat-header" onclick="toggleChat()">
+            <img src="./img/chat.svg" style="width: 60px; height: 60px; border-radius: 20px; transform: scale(1.4);" alt="Chat with AI">
+        </div>
+        <div id="chat-body" class="chat-body" style="display: none;">
+            <div class="chat-messages" id="chat-messages"></div>
+            <textarea id="user-input" rows="3" placeholder="Type your message..."></textarea>
+            <button id="send-btn" style="background-color: #F9977B; border-radius: 20px; height: 30px; margin: 10px;">Send</button>
+        </div>
+    </div>
+    
+    <script src="./js/chat-widget.js"></script>
+
+
+    <footer>
+        <p>2024 Pet Adoption Agency</p>
+    </footer>
+    <script>
+        document.querySelector('.uploadimg .pic').addEventListener('click', function() {
+            document.getElementById('file-input').click();
+        });
+
+        document.getElementById('file-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById('image-preview');
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+    <script src="./js/adoptionScript.js" type="module"></script>
+    </body>
+</html>

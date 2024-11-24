@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Details</title>
+    <style>
+        body {
+            font-family: 'Gothic A1', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .pet-details {
+            margin: 20px 0;
+            
+        }
+        .pet-details h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .pet-details p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .pet-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/chat-widget.css">
+</head>
+<body>
+    <h1>Pet Details</h1>
+    <div class="container">
+        <div class="pet-details">
+            <h2>Pet: <span id="pet-name">{%PET_NAME%}</span></h2>
+            <p><strong>Breed:</strong> <span id="breed">{%PET_BREED%}</span></p>
+            <p><strong>Poster name:</strong> <span id="pet-type">{%PET_POSTER%}</span></p>
+            <p><strong>Location:</strong> <span id="location">{%LOCATION%}</span></p>
+            <p><strong>Contact No:</strong> <span id="contact-no">{%POSTER_CONTACT%}</span></p>
+            <p><strong>Email:</strong> <span id="email">{%POSTER_EMAIL%}</span></p>
+            <p><strong>Message:</strong> <span id="message">{%MESSAGE%}</span></p>
+        </div>
+        <img id="pet-image" style="width: 200px; height: 200px; margin-left: auto;" class="pet-image" src="{%PET_IMAGE%}" alt="Pet Image">
+    </div>
+    
+    <div id="chat-widget" class="chat-widget">
+        <div class="chat-header" onclick="toggleChat()">
+            <img src="../img/chat.svg" style="width: 60px; height: 60px; border-radius: 20px; transform: scale(1.4);" alt="Chat with AI">
+        </div>
+        <div id="chat-body" class="chat-body" style="display: none;">
+            <div class="chat-messages" id="chat-messages"></div>
+            <textarea id="user-input" rows="3" placeholder="Type your message..."></textarea>
+            <button id="send-btn" style="background-color: #F9977B; border-radius: 20px; height: 30px; margin: 10px;">Send</button>
+        </div>
+    </div>
+    
+    <script src="../js/chat-widget.js"></script>
+</body>
+</html>

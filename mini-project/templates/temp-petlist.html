@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse pets</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Gothic+A1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+        body {
+            font-family: "Gothic A1", sans-serif;
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .cards {
+            width: 70%;
+            height: 15px;
+            margin-bottom: 140px;
+        }
+
+        .card {
+            width: auto;
+            background-color: #f0f0f0;
+            border-radius: 20px !important;
+            padding: 7px;
+            margin: 10px auto 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .card:hover {
+            transform: scale(1.1, 1.1);
+            box-shadow: 0 4px 8px rgba(42, 133, 252, 0.842);
+            z-index: 999;
+        }
+
+        .card {
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover>.cards:not(:hover) {
+            filter: blur(1px);
+            transform: scale(0.9, 0.9);
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        button {
+            color: rgb(25, 26, 28);
+        }
+
+        button::before {
+            background-color: #333;
+        }
+
+        button::after {
+            background-color: rgb(107, 125, 141);
+        }
+
+        button:hover {
+            background-color: #959494;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-color: #ffffff;
+            --txt1-color: #feffff;
+            --text2-color: #151412;
+            --pri-color: #f19b0d;
+        }
+
+        html,
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: rgba(242, 238, 234, 0.471);
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(15px);
+            animation: fadeInUp 1s forwards;
+
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background-color: #f8f8f8;
+            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+            border: 1px solid rgb(238, 232, 232);
+            box-shadow: 7px 20px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        .navpart {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav h4 {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        nav h4:hover {
+            color: var(--pri-color);
+        }
+
+        nav button {
+            background-color: var(--pri-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        nav button:hover {
+            background-color: #d9890d;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navpart {
+                display: none;
+                flex-direction: column;
+                background-color: #f8f8f8;
+                position: absolute;
+                top: 60px;
+                width: 100%;
+                left: 0;
+                text-align: center;
+            }
+
+            .navpart.active {
+                display: flex;
+            }
+
+            .navpart h4 {
+                padding: 10px 0;
+            }
+
+            .nav-toggle {
+                display: block;
+                cursor: pointer;
+            }
+
+            .nav-toggle .bar {
+                width: 25px;
+                height: 3px;
+                background-color: var(--text2-color);
+                margin: 5px;
+                transition: all 0.3s ease;
+            }
+        }
+
+        /* Hide the toggle button by default */
+        .nav-toggle {
+            display: none;
+        }
+
+        .active-filter {
+            background-color: #ebb45c !important;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/chat-widget.css">
+</head>
+
+<body style="overflow-x: hidden;">
+    <nav>
+        <div class="logo"><img src="../img/iages.png" alt="" /></div>
+        <div class="navpart">
+            <h4 onclick="window.location.href='/'"">Home</h4>
+            <h4 onclick=" window.location.href='/pets'">Adopt now</h4>
+            <h4 onclick=" window.location.href='/upforadoption'">Post-a-Pet</h4>
+            <h4 onclick=" window.location.href='/about'">About us</h4>
+            <h4 onclick=" window.location.href='/contact'">Contact Us</h4>
+        </div>
+        <button onclick=" window.location.href='/signin'">Sign out</button>
+    </nav>
+
+    <h1 style=" left: 100px; position: relative;">Browse pets up for adoption !</h1>
+                <div style="display: flex; flex-direction: row; left: 100px; position: relative;"> Filters :
+                    <button class="filter-button"
+                        style="width: 55px; height: auto; border: 2px solid black; border-radius: 20px; margin: 0 6px 0 10px; padding: 3px;"
+                        onclick="setActiveFilter('all'); window.location.href='/pets';">All</button>
+                    
+                    <button class="filter-button"
+                        style="width: 55px; height: auto; border: 2px solid black; border-radius: 20px; margin: 0 6px 0 10px; padding: 3px;"
+                        onclick="setActiveFilter('Bird'); window.location.href='/pets/filter/bird';">Birds</button>
+
+                    <button class="filter-button"
+                        style="width: 55px; height: auto; border: 2px solid black; border-radius: 20px; margin: 0 6px 0 10px; padding: 3px;"
+                        onclick="setActiveFilter('Dog'); window.location.href='/pets/filter/dog';">Dogs</button>
+
+                    <button class="filter-button"
+                        style="width: 55px; height: auto; border: 2px solid black; border-radius: 20px; margin: 0 6px 0 10px; padding: 3px;"
+                        onclick="setActiveFilter('Cat'); window.location.href='/pets/filter/cat'">Cats</button>
+                </div>
+                <main>
+                    {%PET_CARD%}
+                </main>
+
+                <div id="chat-widget" class="chat-widget">
+                    <div class="chat-header" onclick="toggleChat()">
+                        <img src="/img/chat.svg"
+                            style="width: 60px; height: 60px; border-radius: 20px; transform: scale(1.4);"
+                            alt="Chat with AI">
+                    </div>
+                    <div id="chat-body" class="chat-body" style="display: none;">
+                        <div class="chat-messages" id="chat-messages"></div>
+                        <textarea id="user-input" rows="3" placeholder="Type your message..."></textarea>
+                        <button id="send-btn"
+                            style="background-color: #F9977B; border-radius: 20px; height: 30px; margin: 10px;">Send</button>
+                    </div>
+                </div>
+
+                <script>
+                    function setActiveFilter(filter) {
+                        localStorage.setItem('activeFilter', filter);
+                    }
+
+                    document.addEventListener('DOMContentLoaded', (event) => {
+                        const activeFilter = localStorage.getItem('activeFilter');
+                        if (activeFilter) {
+                            const button = document.querySelector(`button[onclick*="${activeFilter}"]`);
+                            if (button) {
+                                button.classList.add('active-filter');
+                            }
+                        }
+                    });
+                </script>
+                <script src="/js/chat-widget.js"></script>
+</body>
+
+</html>

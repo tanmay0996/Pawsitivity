@@ -1,0 +1,236 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --txt1-color: #feffff;
+  --text2-color: #151412;
+  --pri-color: #f19b0d;
+}
+
+html,
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: rgba(242, 238, 234, 0.471);
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  border: 1px solid rgb(238, 232, 232);
+  box-shadow: 7px 20px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+}
+
+.navpart {
+  display: flex;
+  gap: 20px;
+}
+
+nav h4 {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+nav h4:hover {
+  color: var(--pri-color);
+}
+
+nav button {
+  background-color: var(--pri-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+  background-color: #d9890d;
+}
+
+@media screen and (max-width: 768px) {
+  .navpart {
+    display: none;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
+
+  .navpart.active {
+    display: flex;
+  }
+
+  .navpart h4 {
+    padding: 10px 0;
+  }
+
+  .nav-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text2-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+  }
+}
+
+/* Hide the toggle button by default */
+.nav-toggle {
+  display: none;
+}
+
+.hero {
+  width: 90vw;
+  height: 40vh;
+  /* background-color: aqua; */
+  margin-left: 5%;
+  margin-right: 5%;
+  box-shadow: -20px -14px 1000px 20px inset;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  position: relative;
+  box-shadow: 1%;
+  z-index: -1;
+  border: 2px solid var(--text2-color);
+}
+
+.story {
+  width: 90vw;
+  height: 60vh;
+  /* background-color: aqua; */
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  margin-top: 2vh;
+  align-items: center;
+  gap: 2vh;
+}
+
+.story h3 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.story p {
+  line-height: 3.5vh;
+}
+
+.mission {
+  width: 90vw;
+  height: 60vh;
+  /* background-color: aqua; */
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  gap: 2vh;
+  margin-bottom: 4vh;
+}
+
+.mission h3 {
+  /* font-family: "Seymour One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-style: normal; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.mission p {
+  line-height: 3.5vh;
+}
+
+.team {
+  width: 90vw;
+  height: 10vh;
+  /* background-color: aqua; */
+  margin-left: 5%;
+  margin-right: 5%;
+
+  /* margin-top: 2vh; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.mem {
+  width: 90vw;
+  height: 60vh;
+  /* background-color: antiquewhite; */
+}
+
+.mem1 {
+  width: 100%;
+  height: 25%;
+  /* border: 2px solid black; */
+  margin-top: 2%;
+  display: flex;
+  border: 1px solid rgb(238, 232, 232);
+  box-shadow: 7px 20px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mem1 img {
+  height: 100%;
+  border-radius: 50%;
+  filter: grayscale(1);
+  border: 1px solid black;
+}
+
+.discription {
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  gap: 7%;
+}
+
+.discription h5 {
+  color: var(--text2-color);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.discription p {
+  color: #b9904e;
+}

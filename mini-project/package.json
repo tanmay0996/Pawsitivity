@@ -1,0 +1,29 @@
+{
+  "name": "pet-hosting",
+  "version": "1.0.0",
+  "description": "Directory for pawsitivity",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Dhruv puri, Tanmay Srivastava, Teli mushera, ankitha",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanmay0996/Pet-hosting.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tanmay0996/Pet-hosting/issues"
+  },
+  "homepage": "https://github.com/tanmay0996/Pet-hosting#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "firebase": "^10.12.2",
+    "firebase-functions": "^5.0.1",
+    "nodemon": "^3.1.4",
+    "@google/generative-ai": "^0.11.4",
+    "dotenv": "^16.4.5"
+  }
+}

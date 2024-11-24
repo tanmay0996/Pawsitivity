@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="./css/about.css">
+  <link rel="stylesheet" href="./css/chat-widget.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Seymour+One&display=swap" rel="stylesheet">
+
+
+<body>
+  <nav>
+    <div class="logo"><img src="../public/img/images.png" alt="" /></div>
+    <div class="navpart">
+        <h4 onclick="window.location.href='/'"">Home</h4>
+        <h4 onclick="window.location.href='/pets'">Adopt now</h4>
+        <h4 onclick="window.location.href='/upforadoption'">Post-a-Pet</h4>
+        <h4 onclick="window.location.href='/about'">About us</h4>
+        <h4 onclick="window.location.href='/contact'">Contact Us</h4>
+    </div>
+    <button onclick="window.location.href='/signin'">Sign in</button>
+</nav>
+  <br>
+  <div style="height: 60%"  class="hero">
+    <img style="aspect-ratio:3/2; object-fit: cover;" src="./img/maxresdefault.jpg" alt="">
+  </div>
+  <div class="story">
+    <h3>Our Story</h3>
+    <p>Our pet adoption website was inspired by a deep love for animals and a desire to help the countless pets in shelters find loving homes. Witnessing the challenges shelters face, our founders combined their passion for animal welfare with their expertise in technology to create a platform that streamlines the adoption process. Since launching, we've partnered with numerous shelters, helping many pets find their forever families and driven by every success story.
+    </p>
+  </div>
+
+  <div class="mission">
+    <h3>Our Mission</h3>
+    <p>
+      At Pawsitivity, our mission is to transform the pet adoption process through technology, saving lives and supporting shelters. We aim to increase adoption rates, reduce euthanasia, and provide shelters with the tools they need to manage their animals effectively. By educating potential pet owners on responsible ownership and promoting a compassionate community, we strive to make the adoption process seamless and enjoyable, ensuring every pet finds a loving home.</p>
+  </div>
+  <br>
+  <div id="chat-widget" class="chat-widget">
+    <div class="chat-header" onclick="toggleChat()">
+        <img src="./img/chat.svg" style="width: 60px; height: 60px; border-radius: 20px; transform: scale(1.4);" alt="Chat with AI">
+    </div>
+    <div id="chat-body" class="chat-body" style="display: none;">
+        <div class="chat-messages" id="chat-messages"></div>
+        <textarea id="user-input" rows="3" placeholder="Type your message..."></textarea>
+        <button id="send-btn" style="background-color: #F9977B; border-radius: 20px; height: 30px; margin: 10px;">Send</button>
+    </div>
+</div>
+
+<script src="./js/chat-widget.js"></script>
+
+  <div class="team">
+    <h3>Development team</h3>
+    <div class="mem">
+      <div class="mem1">
+        <img src="./img/WhatsApp Image 2024-06-18 at 23.13.38_8834461f.jpg" alt="">
+        <div class="discription">
+          <h5>DHRUV PURI</h5>
+          <p>Part-time backend developer <br> Full-time cat person </p>
+        </div>
+      </div>
+      
+      <div class="mem1">
+        <img  style="border:
+        1px solid black"  src="./img/pngtree-cute-dog-wearing-sunglasses-stickers-png-image_11899682.png" alt="">
+        <div class="discription">
+          <h5>TANMAY SRIVASTAVA  </h5>
+          <p >Part-time Frontend Developer <br>Full-time dog person</p>
+        </div>
+      </div>
+      <br>
+      
+      <h3>Management team</h3>
+      <div class="mem1">
+        <img style="width: 91px;" src="./img/dog1.0.jpeg" alt="">
+        <div class="discription">
+          <h5>TELI MUSHERA</h5>
+          <p>Documentation Expert</p>
+        </div>
+      </div>
+
+
+      <div class="mem1">
+        <img style="width: 95px;" src="./img/ankita.jpg" alt="">
+        <div class="discription">
+          <h5>ANKITHA S</h5>
+          <p>Presentation Coordinator</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

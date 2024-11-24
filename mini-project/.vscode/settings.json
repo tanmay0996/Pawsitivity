@@ -1,0 +1,31 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 3000,
+  "editor.tokenColorCustomizations": {
+  "[Deep Dark Space]": {
+    "keywords": {
+      "fontStyle": "italic"
+    }
+  }
+},
+"editor.guides.bracketPairs": "active",
+"editor.bracketPairColorization.enabled": false
+
+}
